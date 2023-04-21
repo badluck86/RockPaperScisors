@@ -27,6 +27,33 @@ function getComputerChoice () {
     const playerSelection = "rock";
     let result = playRound(playerSelection, getComputerChoice());
     console.log(result);
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i<5; i++) {
+        const playerSelection = prompt("You choose Rock, Paper or Scissors").toLowerCase();
+        const computerSelection = getComputerChoice();
+        console.log ("You choose " + playerSelection + ".");
+        console.log("The computer chose " + computerSelection + ".");
+        const roundResult = playRound(playerSelection, computerSelection);
+        console.log (roundResult);
+        if (roundResult.includes("win")){
+            playerScore ++;
+        } else if (roundResult.includes("lose")){
+            computerScore++;
+        }
+    }
+    if (playerScore > computerScore) {
+        console.log("you win the game!");
+    } else if (computerScore > playerScore) {
+        console.log("You lose the game!");
+    } else {
+        console.log("The game is tied!");
+    }
+}
+
+game();
 
    
     
